@@ -12,7 +12,7 @@ After  removing unnecessary fields such as  Cp, Cdp, Cm, x. A dataframe is creat
 
 Preprocessing is a crucial step in machine learning, that involves transforming raw data into a format suitable for modeling. It enhances the quality of the data and helps improve the performance and accuracy of the machine learning models.
 
-##Normalization
+## Normalization
 
 Normalization is a preprocessing technique used to scale the features of the dataset so they have a similar range of values. 
 
@@ -36,4 +36,4 @@ Different model settings are used, including variations in the number of hidden 
 
 
 
-##Results
+## Results
