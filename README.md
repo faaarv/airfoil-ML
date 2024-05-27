@@ -45,7 +45,7 @@ in the case of including y values in normalization: With the same model settings
 
 In both normalization methods, the model performs better on the dataset where Y is not normalized. for example :
 
-Standard Normalization
+**Standard Normalization**
 
 Model Settings: [512, 512, 512]
 
@@ -69,7 +69,7 @@ Average Time (s): 201.518
 
 Standard Deviation of MSE: 1.58×10−31.58×10−3
 
-MinMax Normalization
+**MinMax Normalization**
 
 Model Settings: [128, 128, 128, 128, 64, 64, 64]
 
