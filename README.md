@@ -51,23 +51,10 @@ Model Settings: [512, 512, 512]
 
 When Y is normalized:
 
-Average MSE: 2.15×10−22.15×10−2
-
-Average R²: 0.978
-
-Average Time (s): 202.765
-
-Standard Deviation of MSE: 3.26×10−33.26×10−3
 
 When Y is not normalized:
 
-Average MSE: 1.74×10−21.74×10−2
 
-Average R²: 0.983
-
-Average Time (s): 201.518
-
-Standard Deviation of MSE: 1.58×10−31.58×10−3
 
 **MinMax Normalization**
 
@@ -75,23 +62,10 @@ Model Settings: [128, 128, 128, 128, 64, 64, 64]
 
 When Y is normalized:
 
-Average MSE: 2.07×10−42.07×10−4
 
-Average R²: 0.964
-
-Average Time (s): 868.246
-
-Standard Deviation of MSE: 7.56×10−57.56×10−5
 
 When Y is not normalized:
 
-Average MSE: 1.29×10−41.29×10−4
-
-Average R²: 0.977
-
-Average Time (s): 806.568
-
-Standard Deviation of MSE: 1.34×10−51.34×10−5
 
 Based on these results, MinMax normalization is chosen for evaluating hyperparameters.
 
