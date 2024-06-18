@@ -8,7 +8,7 @@ In this repository,  Airfoil's Lift and Drag Coefficient is predicted using Mach
 
 This dataset ( not normalized ) contains the geometry (x, y) of airfoils and the XFOIL results (Cd, Cdp, Cm , Cl , Cp for upper and lower surface) for various Reynolds numbers (Re), angles of attack (AoA), and Ncrit for each airfoil. 
 
-After  removing unnecessary fields such as  Cp, Cdp, Cm, x. A dataframe is created from original dataset. The x values are the same for all the  airfoils so they are removed from the features. then the dataset is normalized using two scalers: MinMax and Standard.
+For simplicity, we work with Cd, Cl as labels and Re,AoA,Ncrit,y values as Features. A dataframe is created from original dataset. The x values are the same for all the  airfoils so they are removed from the features. then the dataset is normalized using two scalers: MinMax and Standard.
 
 Preprocessing is a crucial step in machine learning, that involves transforming raw data into a format suitable for modeling. It enhances the quality of the data and helps improve the performance and accuracy of the machine learning models.
 
@@ -18,7 +18,7 @@ Normalization is a preprocessing technique used to scale the features of the dat
 
 The MinMax Scaler is a normalization technique that transforms features by scaling them to a specific range, typically between 0 and 1. This method preserves the relationships between the original data values and maintains the distribution of the data.
 
-The Standard Scaler, also known as Z-score normalization, transforms the data such that the resulting distribution has a mean of 0 and a standard deviation of 1. This scaler is useful when the data follows a Gaussian distribution, and it helps in ensuring that each feature contributes equally to the model's performance.
+The Standard Scaler, also known as Z-score normalization, transforms the data such that the resulting distribution has a mean of 0 and a standard deviation of 1. 
 
 ## Model
 
@@ -28,11 +28,11 @@ For robust evaluation, K-Fold Cross-Validation is used. This technique assesses 
 
 K-Fold Cross-Validation helps reduce the impact of dataset variability on model assessment, providing a more reliable estimate of how well a model is likely to perform on unseen data. It is a widely used technique in machine learning to ensure a comprehensive evaluation of a model's capabilities.
 
-K-Fold Cross-Validation also aids in determining the optimal values of hyperparameters. The performance of different architectures is compared using the average metrics obtained through this cross-validation method. This variant of cross-validation improves upon the holdout method by ensuring that the model score does not depend on how the training and test sets are chosen. The final result is obtained by taking the arithmetic mean and standard deviation of the results from each iteration.
+K-Fold Cross-Validation also aids in determining the optimal values of hyperparameters. The performance of different architectures is compared using the average metrics obtained through this cross-validation method. This variant of cross-validation improves upon the holdout method by ensuring that the model score does not depend on how the training and test sets are chosen. 
 
 ## Training
 
-Different model settings are used, including variations in the number of hidden layers, the number of hidden units per layer, learning rate, number of epochs, and batch size. The criteria for evaluating the model include the mean squared error (MSE), the standard deviation of the MSE, training time, and the R-squared (R²) metric. These metrics help in assessing the accuracy, stability, and efficiency of the model under different configurations.
+Different model settings are used, including variations in the number of hidden layers, the number of units per layer, learning rate, number of epochs, and batch size. The criteria for evaluating the model include the mean squared error (MSE), the standard deviation of the MSE, training time, and the R-squared (R²) metric. These metrics help in assessing the accuracy, stability, and efficiency of the model under different configurations.
 
 
 
@@ -43,29 +43,5 @@ As previously mentioned, two normalization methods are used in this work. Initia
 
 in the case of including y values in normalization: With the same model settings, the MSE loss for MinMax normalization was better than for Standard normalization(repeated with different model parameters).
 
-In both normalization methods, the model performs better on the dataset where Y is not normalized. for example :
-
-**Standard Normalization**
-
-Model Settings: [512, 512, 512]
-
-When Y is normalized:
-
-
-When Y is not normalized:
-
-
-
-**MinMax Normalization**
-
-Model Settings: [128, 128, 128, 128, 64, 64, 64]
-
-When Y is normalized:
-
-
-
-When Y is not normalized:
-
-
-Based on these results, MinMax normalization is chosen for evaluating hyperparameters.
+In both normalization methods, the model performs better on the dataset where Y is not normalized.
 
