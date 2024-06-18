@@ -8,17 +8,15 @@ from sklearn.metrics import mean_squared_error, r2_score
 from sklearn.model_selection import KFold
 import csv
 import os
-import tensorflow as tf
 
 # Load your dataset here
 data=  np.loadtxt('dataset_normalized.csv', delimiter=',', skiprows=1)
 
         
-# Define the number of folds
 model_settings = {
     'fold_number': 10,
-    'hidden_layers': 7,
-    'hidden_units_per_layer': [128 , 128, 128, 128, 64 ,64 , 64  ],
+    'hidden_layers': 3,
+    'hidden_units_per_layer': [128 , 128, 128],
     'output_units': 2,
     'activation': 'relu',
     'output_activation': 'linear',
@@ -37,9 +35,9 @@ kf = KFold(n_splits=model_settings['fold_number'], shuffle=True, random_state=42
 mse_scores = []
 r2_scores = []
 average_times = []
-fold_mse = []  # Store MSE at the end of each fold
-fold_r2 = []  # Store R² at the end of each fold
-fold_time = []  # Store total time for each fold
+fold_mse = []  
+fold_r2 = []  
+fold_time = []  
 loss_per_fold = []
 val_loss_per_fold = []
 
@@ -47,17 +45,13 @@ val_loss_per_fold = []
 for fold, (train_index, test_index) in enumerate(kf.split(data)):
     print(f"Training on Fold {fold + 1}/{model_settings['fold_number']}")
 
-    # Split the data into training and test sets
     train_data, test_data = data[train_index], data[test_index]
     train_data = train_data.astype(np.float32)
     test_data = test_data.astype(np.float32)
-
     target_columns = slice(0, 2)
     input_columns = slice(2, None)
-
     X_train = train_data[:, input_columns]
     y_train = train_data[:, target_columns]
-
     X_test = test_data[:, input_columns]
     y_test = test_data[:, target_columns]
 
@@ -85,13 +79,11 @@ for fold, (train_index, test_index) in enumerate(kf.split(data)):
     y_pred = model.predict(X_test)
     y_pred = y_pred.astype(np.float32)
 
-
     # metrics 
     mse = mean_squared_error(y_test, y_pred)
     mse_scores.append(mse)
     r2 = r2_score(y_test, y_pred)
     r2_scores.append(r2)
-
     average_times.append(total_time)
     fold_mse.append(mse)
     fold_r2.append(r2)
@@ -114,7 +106,6 @@ print(f"Average Time across {model_settings['fold_number']} folds: {average_time
 model_settings['average_mse'] = average_mse
 model_settings['average_r2'] = average_r2
 model_settings['average_time'] = average_time
-# Calculate standard deviation for MSE and R²
 std_mse = np.std(mse_scores)
 std_r2 = np.std(r2_scores)
 
