@@ -37,11 +37,5 @@ Different model settings are used, including variations in the number of hidden 
 
 
 ## Results
-All the Y values range between -1 and 1. Despite being within this range, the maximum Y value and some other features are not consistent. Therefore, the results are obtained both with normalized Y values and without normalizing them for comparison.
 
-As previously mentioned, two normalization methods are used in this work. Initially, these two methods are compared.
-
-in the case of including y values in normalization: With the same model settings, the MSE loss for MinMax normalization was better than for Standard normalization(repeated with different model parameters).
-
-In both normalization methods, the model performs better on the dataset where Y is not normalized.
-
+[View the notebook](https://github.com/faaarv/airfoil-ML/blob/main/results.ipynb)
