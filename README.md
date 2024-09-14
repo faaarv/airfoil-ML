@@ -7,7 +7,8 @@ In this notebook, the application of machine learning techniques to predict aero
  The dataset utilized in this project is a comprehensive collection of airfoil data, available through: https://github.com/nasa/airfoil-learning.
 
 This dataset ( not normalized ) contains the geometry (x, y) of airfoils and the XFOIL results (Cd, Cdp, Cm , Cl , Cp for upper and lower surface) for various Reynolds numbers (Re), angles of attack (AoA), and Ncrit for each airfoil. 
-Dataset Contents
+
+Dataset Contents:
 The dataset includes the following key components:
 Airfoil Geometry: Represented by (x, y) coordinates that define the shape of each airfoil.
 XFOIL Results: XFOIL, a popular software for airfoil analysis, provides critical aerodynamic coefficients:
