@@ -6,22 +6,27 @@ In this notebook, the application of machine learning techniques to predict aero
 ## Dataset
  The dataset utilized in this project is a comprehensive collection of airfoil data, available through: https://github.com/nasa/airfoil-learning.
 
-This dataset ( not normalized ) contains the geometry (x, y) of airfoils and the XFOIL results (Cd, Cdp, Cm , Cl , Cp for upper and lower surface) for various Reynolds numbers (Re), angles of attack (AoA), and Ncrit for each airfoil. 
 
-Dataset Contents:
+### Dataset Contents
+
 The dataset includes the following key components:
-Airfoil Geometry: Represented by (x, y) coordinates that define the shape of each airfoil.
-XFOIL Results: XFOIL, a popular software for airfoil analysis, provides critical aerodynamic coefficients:
-Drag coefficient (Cd)
-Pressure drag coefficient (Cdp)
-Moment coefficient (Cm)
-Lift coefficient (Cl)
-Pressure coefficient (Cp) for both upper and lower surfaces
-Flow Conditions: Various parameters that affect airfoil performance:
-Reynolds number (Re)
-Angle of attack (AoA)
-Ncrit (transition criterion parameter)
 
+#### Airfoil Geometry
+- Represented by (x, y) coordinates that define the shape of each airfoil.
+
+#### XFOIL Results
+XFOIL, a popular software for airfoil analysis, provides critical aerodynamic coefficients:
+- Drag coefficient (Cd)
+- Pressure drag coefficient (Cdp)
+- Moment coefficient (Cm)
+- Lift coefficient (Cl)
+- Pressure coefficient (Cp) for both upper and lower surfaces
+
+#### Flow Conditions
+Various parameters that affect airfoil performance:
+- Reynolds number (Re)
+- Angle of attack (AoA)
+- Ncrit (transition criterion parameter)
 For simplicity, we work with Cd, Cl as labels and Re,AoA,Ncrit,y values as Features. A dataframe is created from original dataset. The x values are the same for all the airfoils so they are removed from the features. then the dataset is normalized using two scalers: MinMax and Standard.
 
 Preprocessing is a crucial step in machine learning, that involves transforming raw data into a format suitable for modeling. It enhances the quality of the data and helps improve the performance and accuracy of the machine learning models.
