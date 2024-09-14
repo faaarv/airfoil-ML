@@ -27,6 +27,8 @@ Various parameters that affect airfoil performance:
 - Reynolds number (Re)
 - Angle of attack (AoA)
 - Ncrit (transition criterion parameter)
+
+
 For simplicity, we work with Cd, Cl as labels and Re,AoA,Ncrit,y values as Features. A dataframe is created from original dataset. The x values are the same for all the airfoils so they are removed from the features. then the dataset is normalized using two scalers: MinMax and Standard.
 
 Preprocessing is a crucial step in machine learning, that involves transforming raw data into a format suitable for modeling. It enhances the quality of the data and helps improve the performance and accuracy of the machine learning models.
